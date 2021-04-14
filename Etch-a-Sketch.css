@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container{
+    background: aquamarine;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.display{
+    justify-content: center;
+    align-content: center;
+    padding: 40px;
+}
