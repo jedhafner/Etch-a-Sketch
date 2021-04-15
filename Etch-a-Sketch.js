@@ -2,7 +2,7 @@ const container = document.querySelector(".container");
 const display = document.querySelector(".display");
 
 
-let squaresPerSide = 4;
+let squaresPerSide = 8;
 
 let containerLength = 600;
 
@@ -38,7 +38,7 @@ createGrid(squaresPerSide);
 
 
 container.addEventListener('mouseover', function(event){
-    event.target.style.background = 'green';
+    event.target.style.background = 'Orange';
 })
 
 /* Add a button to the top of the screen which will clear the
@@ -47,32 +47,27 @@ squares per side (max 100) to make the new grid. Once entered the new
 grid should be generated in the same total space as before 
 (e.g. 960px wide) and now you’ve got a new sketch pad. 
 
-if (heightSquares > 100){
-    heightSquares = 100;
-} else if (widthSquares = 100){}
-    widthSquares = 100;
-}
-
 */
 let promptMessage = "Set the number of squares per side: enter a whole number 1 - 100."
 
 const resetGrid = () => {
-    squaresPerSide = window.prompt(promptMessage, 16);
+    squaresPerSide = Number(Math.floor(window.prompt(promptMessage, 16)));
     if (squaresPerSide > 100) {
         squaresPerSide = 100;
     } else if (squaresPerSide < 1) {
         squaresPerSide = 1;
-    } else if (!Number.isInteger(squaresPerSide)){
-        sqaresPerSide = 16;
+    } else if (isNaN(squaresPerSide)){
+        squaresPerSide = 16;
     }
     console.log(squaresPerSide);
+    console.log(!Number.isInteger(squaresPerSide));
     function removeAllChildNodes(parent) {
         while (parent.firstElementChild) {
             parent.removeChild(parent.firstElementChild);
         }
     }
+    console.log(squaresPerSide);
     removeAllChildNodes(container);
-    opacityValue = 0.0;
     createGrid(squaresPerSide);
     };
 let button = document.querySelector('button');
